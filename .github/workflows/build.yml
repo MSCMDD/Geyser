@@ -90,7 +90,7 @@ jobs:
           arguments: publish
 
       - name: Publish to Downloads API
-        if: ${{ success() && github.repository == 'GeyserMC/Geyser' && github.ref_name == 'master' }}
+        if: ${{ success() && github.repository == 'MSCMDD/Geyser' && github.ref_name == 'master' }}
         shell: bash
         env:
           DOWNLOADS_USERNAME: ${{ vars.DOWNLOADS_USERNAME }}
@@ -123,8 +123,8 @@ jobs:
           gradle-home-cache-cleanup: true
           
       - name: Notify Discord
-        if: ${{ (success() || failure()) && github.repository == 'GeyserMC/Geyser' }}
-        uses: Tim203/actions-git-discord-webhook@main
+        if: ${{ (success() || failure()) && github.repository == 'MSCMDD/Geyser' }}
+        uses: MSCMDD/actions-git-discord-webhook@main
         with:
           webhook_url: ${{ secrets.DISCORD_WEBHOOK }}
           status: ${{ job.status }}
